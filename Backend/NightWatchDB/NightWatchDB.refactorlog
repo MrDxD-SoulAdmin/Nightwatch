@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="8a886015-5873-4a08-9f5b-6819e37a45b6" ChangeDateTime="04/14/2024 15:33:24">
+    <Property Name="ElementName" Value="[dbo].[User].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1c400557-2a04-4ca8-bfdc-5fa5d923f06b" ChangeDateTime="04/14/2024 15:36:43">
+    <Property Name="ElementName" Value="[dbo].[Movie].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movie]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MovieID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1f641d74-ab17-443c-a4f1-6e79ec04539a" ChangeDateTime="04/14/2024 15:47:35">
+    <Property Name="ElementName" Value="[dbo].[UserLikedMovie].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserLikedMovie]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3d26ad10-9f3b-4085-953e-9930878b0b98" ChangeDateTime="04/14/2024 15:48:12">
+    <Property Name="ElementName" Value="[dbo].[UserLikedMovie].[MoveiID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserLikedMovie]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MoveID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6b031073-3d7d-4652-8260-5c032302debe" ChangeDateTime="04/14/2024 15:48:22">
+    <Property Name="ElementName" Value="[dbo].[UserLikedMovie].[MoveID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserLikedMovie]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MovieID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="777eb163-ec24-4170-a503-b36bdec8b3b9" ChangeDateTime="04/14/2024 15:50:23">
+    <Property Name="ElementName" Value="[dbo].[MovieGenre].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MovieGenre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7f71b62c-01e1-4562-99a5-9d06758612ca" ChangeDateTime="04/14/2024 15:50:29">
+    <Property Name="ElementName" Value="[dbo].[UserDislikedMovie].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UserDislikedMovie]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e80550d2-c31b-4466-90d9-ef62e6dc89dd" ChangeDateTime="04/14/2024 15:51:16">
+    <Property Name="ElementName" Value="[dbo].[Genre].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Genre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GenreID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf2ac2da-c4ab-4fe7-b9a3-fe7d591a4152" ChangeDateTime="04/14/2024 15:52:03">
+    <Property Name="ElementName" Value="[dbo].[MovieGenre].[User]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MovieGenre]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MovieID" />
+  </Operation>
+</Operations>

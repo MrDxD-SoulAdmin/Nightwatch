@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../Images/luffy-minimal-5k-pf-2560x1080.jpg");
+    background-size: cover;
+}
+
+.Login_From_Container {
+    position: relative;
+    width: 370px;
+    height: 450px;
+    background: transparent;
+    border-radius: 50px 5px;
+    overflow: hidden;
+}
+
+.Login_From_Container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 370px;
+    height: 450px;
+    background: linear-gradient(60deg, transparent, red, yellow);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.Login_From_Container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 370px;
+    height: 450px;
+    background: linear-gradient(60deg, transparent, red, yellow);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Login_From {
+    position: absolute;
+    inset: 2px;
+    border-radius: 50px 5px;
+    background-image: url("../Images/luffy-minimal-5k-pf-2560x1080.jpg");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-x: left;
+    z-index: 10;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.Input {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+::placeholder {
+    /*color: #ffa845;*/
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Input input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ff0000;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    Z-index: 10;
+}
+
+.Input i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.Input input:valid~i,
+.Input input:focus~i {
+    height: 44px;
+}
+
+#LB {
+    font-size: 16px;
+    z-index: 8;
+    width: 50%;
+    height: 30px;
+    border-radius: 10%;
+    margin: 10% 25% 10px 25%;
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#LB:active {
+    background-color: #45f3ff;
+}
+
+.footer {
+    text-align: right;
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
