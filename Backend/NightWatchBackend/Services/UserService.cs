@@ -31,6 +31,8 @@ namespace NightWatchBackend.Services
             var inputHash = SHA256.HashData(inputBytes);
             var hex = Convert.ToHexString(inputHash);
 
+            bool ExistsEmail = await userRepository.GetUserByEmail(data.email);
+            bool ExistsUsername = await userRepository.GetUserByUsername(data.username);
             //File.WriteAllBytes("./ProfilK/" + data.username);
             User One = new User() {  
                 Email = data.email, 
@@ -39,8 +41,16 @@ namespace NightWatchBackend.Services
                 BirthDate = DateOnly.Parse(data.dateofbirth), 
                 //ProfilePath = "./ProfilK/" + data.username, 
                 CreatedOn = DateTime.UtcNow};
+            if (ExistsEmail || ExistsUsername)
+            {
+                return null;
+            }
+            else {
                 await userRepository.InsertUserToDb(One);
-            return One;
+                return One;
+            }
+            
+            
 
         }
 

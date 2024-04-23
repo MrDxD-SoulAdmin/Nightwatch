@@ -1,6 +1,8 @@
 import "./login.css";
 import React from "react";
 import UserCall from "../BackendCall/UserCall";
+import { Link } from "react-router-dom";
+
 export function Login() {
 
     const UserLog = () => {
@@ -22,14 +24,15 @@ export function Login() {
     }
 
     return (
+    <div className="cont">
         <div class="Login_From_Container">
             <div class="Login_From">
                 <h2>Sign In</h2>
-                <div class="Input">
+                <div class="Input_L">
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="E-mail" class="Inputs" autocomplete="off" id="email" />
                 </div>
-                <div class="Input">
+                <div class="Input_L">
                     <i class="fa fa-user"></i>
                     <input type="password" placeholder="Password" class="Inputs" autocomplete="off" id="password" />
                 </div>
@@ -37,9 +40,10 @@ export function Login() {
                     <button onClick={UserLog} id="LB">Login</button>
                 </div>
                 <div class="footer">
-                    <a href="/">Sign Up</a>
+                    <Link to={"/user/register"}>Sign Up</Link>
                 </div>
             </div>
         </div>
+    </div>
     )
 }

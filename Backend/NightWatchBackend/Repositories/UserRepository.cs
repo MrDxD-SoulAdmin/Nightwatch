@@ -35,5 +35,15 @@ namespace NightWatchBackend.Repositories
 
             return await context.Users.Include(x => x.DislikedMovieNavigation).ToListAsync();
         }
+
+        internal async Task<bool> GetUserByEmail(string email)
+        {
+            return await context.Users.AnyAsync(x => x.Email == email);
+        }
+
+        internal async Task<bool> GetUserByUsername(string username)
+        {
+            return await context.Users.AnyAsync(x => x.Username == username);
+        }
     }
 }

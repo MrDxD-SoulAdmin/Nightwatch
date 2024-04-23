@@ -20,5 +20,11 @@ namespace NightWatchBackend.Services
             List<Movie> m = await movieRepository.GetAllMovies();
             return mapper.Map<List<MovieResources>>(m);
         }
+
+        internal async Task<List<MovieResources>> GetNewMovies()
+        {
+            List<Movie> m = await movieRepository.GetNewMovies();
+            return mapper.Map<List<MovieResources>>(m);
+        }
     }
 }

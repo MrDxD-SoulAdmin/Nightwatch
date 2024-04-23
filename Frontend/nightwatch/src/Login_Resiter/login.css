@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
+.cont {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +69,7 @@ body {
     flex-direction: column;
 }
 
-h2 {
+.Login_From h2 {
     background: -webkit-linear-gradient(red, yellow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,33 +78,33 @@ h2 {
     text-align: center;
 }
 
-.Input {
+.Input_L {
     position: relative;
     width: 300px;
     margin-top: 35px;
 }
 
-::placeholder {
+.Input_L ::placeholder {
     /*color: #ffa845;*/
     background: -webkit-linear-gradient(red, yellow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.Input input {
+.Input_L input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
     background: transparent;
     border: none;
     outline: none;
-    color: #ff0000;
+    color: white;
     font-size: 1em;
     letter-spacing: 0.05em;
     Z-index: 10;
 }
 
-.Input i {
+.Input_L i {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -123,8 +116,8 @@ h2 {
     z-index: 9;
 }
 
-.Input input:valid~i,
-.Input input:focus~i {
+.Input_L input:valid~i,
+.Input_L input:focus~i {
     height: 44px;
 }
 

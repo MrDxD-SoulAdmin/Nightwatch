@@ -38,7 +38,14 @@ namespace NightWatchBackend.Controllers
         public async Task<IActionResult> Register([FromBody]RegData data)
         {
             User usr = await userService.UserReg(data);
-            return Ok(usr);
+            if (usr == null) {
+                return Ok(new { message = "E-mail or Username alredy taken! " });
+            }
+            else
+            {
+                return Ok(usr);
+            }
+            
         }
     }
 }

@@ -4,4 +4,7 @@ export default class MovieCall extends BaseCall{
     static GetMovies(){
         return this.Get("/movie/getAllMovies");
     }
+    static GetNewMovies(){
+        return this.Get("/movie/getNewMovies");
+    }
 }

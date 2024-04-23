@@ -16,5 +16,10 @@ namespace NightWatchBackend.Repositories
         {
             return await context.Movies.ToListAsync();
         }
+
+        internal async Task<List<Movie>> GetNewMovies()
+        {
+            return await context.Movies.OrderByDescending(x => x.RelasedOn).Take(7).ToListAsync();
+        }
     }
 }

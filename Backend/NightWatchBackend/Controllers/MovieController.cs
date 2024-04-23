@@ -21,5 +21,11 @@ namespace NightWatchBackend.Controllers
             List<MovieResources> m = await movieService.GetAllMovies();
             return Ok(m);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetNewMovies()
+        {
+            List<MovieResources> movie = await movieService.GetNewMovies();
+            return Ok(movie);
+        }
     }
 }

@@ -17,8 +17,8 @@ export function Register() {
                 console.log(data);
                 if (!data.message) {
                     localStorage.setItem("Userdata", JSON.stringify(data));
-                    //window.location.href = "/NightWatch";
-                    alert("Működik!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    window.location.href = "/NightWatch";
+                    alert("Registration Success!");
                 } else {
                     alert(data.message);
                 }
