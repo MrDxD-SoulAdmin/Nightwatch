@@ -15,8 +15,8 @@ export function Login() {
                 console.log(data);
                 if (!data.message) {
                     localStorage.setItem("Userdata", JSON.stringify(data));
-                    //window.location.href = "/NightWatch";
-                    alert("Működik!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    window.location.href = "/NightWatch";
+                    //alert("Működik!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 } else {
                     alert(data.message);
                 }

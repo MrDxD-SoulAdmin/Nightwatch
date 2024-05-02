@@ -33,7 +33,7 @@ namespace NightWatchBackend.Repositories
         internal async Task<List<User>> GetAllUser()
         {
 
-            return await context.Users.Include(x => x.DislikedMovieNavigation).ToListAsync();
+            return await context.Users.Include(x => x.MoviesNavigation).ToListAsync();
         }
 
         internal async Task<bool> GetUserByEmail(string email)

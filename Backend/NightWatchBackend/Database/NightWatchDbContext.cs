@@ -28,6 +28,7 @@ public partial class NightWatchDbContext : DbContext
 
             entity.Property(e => e.GenreId).HasColumnName("GenreID");
             entity.Property(e => e.GenreName)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
@@ -36,7 +37,6 @@ public partial class NightWatchDbContext : DbContext
                     "MovieGenre",
                     r => r.HasOne<Movie>().WithMany()
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_MovieGenreForMovID"),
                     l => l.HasOne<Genre>().WithMany()
                         .HasForeignKey("GenreId")
@@ -65,6 +65,7 @@ public partial class NightWatchDbContext : DbContext
                 .HasMaxLength(1000)
                 .IsUnicode(false);
             entity.Property(e => e.FilePath)
+                .IsRequired()
                 .HasMaxLength(200)
                 .IsUnicode(false);
             entity.Property(e => e.Length).HasPrecision(2);
@@ -72,6 +73,7 @@ public partial class NightWatchDbContext : DbContext
                 .HasMaxLength(200)
                 .IsUnicode(false);
             entity.Property(e => e.Title)
+                .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false);
         });
@@ -87,28 +89,29 @@ public partial class NightWatchDbContext : DbContext
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Email)
+                .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.Password)
+                .IsRequired()
                 .HasMaxLength(64)
                 .IsUnicode(false);
             entity.Property(e => e.ProfilePath)
                 .HasMaxLength(200)
                 .IsUnicode(false);
             entity.Property(e => e.Username)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            entity.HasMany(d => d.DislikedMovieNavigation).WithMany(p => p.DislikedByUser)
+            entity.HasMany(d => d.Movies).WithMany(p => p.Users)
                 .UsingEntity<Dictionary<string, object>>(
                     "UserDislikedMovie",
                     r => r.HasOne<Movie>().WithMany()
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_UserDislikedMovieForMovID"),
                     l => l.HasOne<User>().WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_UserDislikedMovieForUsID"),
                     j =>
                     {
@@ -118,16 +121,14 @@ public partial class NightWatchDbContext : DbContext
                         j.IndexerProperty<int>("MovieId").HasColumnName("MovieID");
                     });
 
-            entity.HasMany(d => d.LikedMovieNavigation).WithMany(p => p.LikedByUser)
+            entity.HasMany(d => d.MoviesNavigation).WithMany(p => p.UsersNavigation)
                 .UsingEntity<Dictionary<string, object>>(
                     "UserLikedMovie",
                     r => r.HasOne<Movie>().WithMany()
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_UserlikedMovieForMovID"),
                     l => l.HasOne<User>().WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_UserLikedMovieForUsID"),
                     j =>
                     {

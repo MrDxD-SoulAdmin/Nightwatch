@@ -1,5 +1,40 @@
-.navbar{
-    position:  relative;
-    z-index: 1;
+body {
+    background: url("/src/Images/MainBg.jpg");
 }
-.navbar ul
+
+.InvisibleMenu {
+    display: none;
+    position: absolute;
+
+}
+
+.Profil:hover>div {
+    display: block;
+}
+
+.Menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    font-size: large;
+}
+
+.Links {
+    list-style: none;
+    color: orange;
+    align-items: center;
+}
+
+.Links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.ConstH h1 {
+    text-align: center;
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+}

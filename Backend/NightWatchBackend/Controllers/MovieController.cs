@@ -27,5 +27,24 @@ namespace NightWatchBackend.Controllers
             List<MovieResources> movie = await movieService.GetNewMovies();
             return Ok(movie);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetMoviesWhereGenre([FromQuery]string genre)
+        {
+            List<MovieResources> movie = await movieService.GetMoviesWhereGenre(genre);
+            return Ok(movie);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllMoviesWhereGenre([FromQuery] string genre)
+        {
+            List<MovieResources> movie = await movieService.GetAllMoviesWhereGenre(genre);
+            return Ok(movie);
+        }
+        [HttpDelete]
+        [Route("/movie/DeleteMovie/{movieid}")]
+        public async Task<IActionResult> DeleteMovie(int movieid)
+        {
+            await movieService.DeleteMovie(movieid);
+            return Ok();
+        }
     }
 }

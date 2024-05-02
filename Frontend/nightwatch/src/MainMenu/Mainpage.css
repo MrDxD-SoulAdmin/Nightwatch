@@ -1,0 +1,28 @@
+
+.newmovie {
+    list-style: none;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.movies {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: yellowgreen;
+}
+
+.Head {
+    width:100vw;
+}
+.ConstMP h2{
+    color: yellow;
+    text-decoration: wavy;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.GenredMovie{
+    display: flex;
+}
+.simg{
+    height: 60%;
+    margin: 15px auto;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+}

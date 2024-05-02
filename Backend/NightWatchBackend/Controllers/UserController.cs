@@ -26,7 +26,7 @@ namespace NightWatchBackend.Controllers
             User Usr = await userService.UsrLogin(data);
             if (Usr == null)
             {
-                return Ok(new { message="Hiba!" });
+                return Ok(new { message = "User Not Registed" });
             }
             else
             {

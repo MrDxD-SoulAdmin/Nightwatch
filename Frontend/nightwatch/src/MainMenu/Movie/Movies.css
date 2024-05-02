@@ -1,0 +1,33 @@
+.GenreMenu{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: yellow;
+    display: flex;
+}
+.GenreMenu li{
+    list-style: none;
+}
+.MovieList{
+    display: flex;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 500px;
+}
+.MovieL{
+    margin: auto 0.83%;
+    width: 15%;
+    height: 450px;
+    align-items: center;
+    text-align: center;
+}
+.List li{
+    float: left;
+    margin-right: 20px;
+}
+.List{
+    width: 100%;
+}
+#add{
+    float: right;
+}

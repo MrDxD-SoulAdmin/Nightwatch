@@ -5,8 +5,8 @@ import { Login } from './Login_Resiter/Login';
 import { Register } from './Login_Resiter/Registration';
 import { Home } from './MainMenu/Home';
 import { Mainpage } from './MainMenu/Mainpage';
-import { Movies } from './MainMenu/Movies';
-import { Users } from './MainMenu/Users';
+import { Movies } from './MainMenu/Movie/Movies';
+import { Users } from './MainMenu/Users/Users';
 
 function App() {
 

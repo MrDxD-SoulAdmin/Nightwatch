@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
 using NightWatchBackend.Database.Models;
 using NightWatchBackend.Repositories;
 using NightWatchBackend.Resources;
@@ -15,9 +16,27 @@ namespace NightWatchBackend.Services
             this.mapper = mapper;
         }
 
+        internal async Task DeleteMovie(int movieid)
+        {
+            await movieRepository.DeleteMovie(movieid);
+      
+        }
+
         internal async Task<List<MovieResources>> GetAllMovies()
         {
             List<Movie> m = await movieRepository.GetAllMovies();
+            return mapper.Map<List<MovieResources>>(m);
+        }
+
+        internal async Task<List<MovieResources>> GetAllMoviesWhereGenre(string genre)
+        {
+            List<Movie> m = await movieRepository.GetAllMoviesWhereGenre(genre);
+            return mapper.Map<List<MovieResources>>(m);
+        }
+
+        internal async Task<List<MovieResources>> GetMoviesWhereGenre(string genre)
+        {
+            List<Movie> m = await movieRepository.GetMoviesWhereGenre(genre);
             return mapper.Map<List<MovieResources>>(m);
         }
 

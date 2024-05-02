@@ -22,6 +22,16 @@
 
   <ItemGroup>
     <Folder Include="Database\Models\" />
+	  <Content Include="MoviesTumbnail\**">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <TargetPath>img\%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+	  </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MoviesTumbnail\Taxi.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

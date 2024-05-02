@@ -7,11 +7,11 @@ public partial class User
 {
     public int UserId { get; set; }
 
-    public string Email { get; set; } = null!;
+    public string Email { get; set; }
 
-    public string Username { get; set; } = null!;
+    public string Username { get; set; }
 
-    public string Password { get; set; } = null!;
+    public string Password { get; set; }
 
     public DateOnly BirthDate { get; set; }
 
@@ -19,7 +19,7 @@ public partial class User
 
     public DateTime CreatedOn { get; set; }
 
-    public virtual ICollection<Movie> DislikedMovieNavigation { get; set; } = new List<Movie>();
+    public virtual ICollection<Movie> Movies { get; set; } = new List<Movie>();
 
-    public virtual ICollection<Movie> LikedMovieNavigation { get; set; } = new List<Movie>();
+    public virtual ICollection<Movie> MoviesNavigation { get; set; } = new List<Movie>();
 }

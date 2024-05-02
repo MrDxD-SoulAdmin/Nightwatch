@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using NightWatchBackend.Database;
 using NightWatchBackend.Repositories;
 using NightWatchBackend.Services;
@@ -50,8 +51,12 @@ namespace NightWatchBackend
             app.UseAuthorization();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions() {
+                FileProvider = new PhysicalFileProvider(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"img")),
+                RequestPath = new PathString("/img")
+            });
 
-            
 
             app.MapControllers();
 
