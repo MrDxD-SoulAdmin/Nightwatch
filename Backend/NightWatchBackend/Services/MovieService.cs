@@ -45,5 +45,10 @@ namespace NightWatchBackend.Services
             List<Movie> m = await movieRepository.GetNewMovies();
             return mapper.Map<List<MovieResources>>(m);
         }
+
+        internal async Task ModifyMovie(int movieId, string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        {
+            await movieRepository.ModifyMovie(movieId, title, length, ageRating, relased, filePath, tumbnailPath, description);
+        }
     }
 }

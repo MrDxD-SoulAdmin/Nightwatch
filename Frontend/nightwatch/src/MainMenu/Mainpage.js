@@ -22,7 +22,7 @@ export function Mainpage() {
                 {Moviedata.map((movie, ind) => {
                     return (
                         <div key={ind}>
-                            <img className='simg' src={movie.thumbnailPath?"https://localhost:7293" + movie.thumbnailPath:""} alt={movie.title}/>
+                            <img className='simg' src={movie.thumbnailPath} alt={movie.title}/>
                             <h3>{movie.title}</h3>
                         </div>
                     )

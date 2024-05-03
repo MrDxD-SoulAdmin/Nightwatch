@@ -38,5 +38,18 @@ namespace NightWatchBackend.Repositories
         {
             return await context.Movies.OrderByDescending(x => x.RelasedOn).Take(7).ToListAsync();
         }
+
+        internal async Task ModifyMovie(int movieId, string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        {
+            Movie m = await context.Movies.FirstOrDefaultAsync(x => x.MovieId == movieId);
+            m.Title = title;
+            m.Length = TimeOnly.Parse(length); 
+            m.AgeRating = ageRating;
+            m.RelasedOn = relased;
+            m.FilePath = filePath;
+            m.ThumbnailPath = tumbnailPath;
+            m.Description = description;
+            await context.SaveChangesAsync();
+        }
     }
 }

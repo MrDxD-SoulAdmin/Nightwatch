@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "./Movies.css"
 import MovieCall from '../../BackendCall/MovieCall';
+import { ModifyMovie } from '../Addon/ModifyMovie';
 export function Movies() {
     const [Moviedata, setMoviedata] = useState([]);
     const [Genredata, SetGenredata] = useState("");
+    const [PanelData, setPanelData] = useState("");
+    const [Movie, setMovie] = useState("");
     function GetMoviesByGenre(g) {
         MovieCall.GetAllMovieGenre(g)
             .then(response => response.json())
@@ -13,16 +16,17 @@ export function Movies() {
                 SetGenredata(g);
             });
     }
-    function ModButt(){
-        
+    function ModButt(movieid) {
+        setPanelData("Edit");
+        setMovie(Moviedata.find(x => x.movieId === movieid));
     }
-    function DelButt(movieid){
+    function DelButt(movieid) {
         MovieCall.DeleteMovie(movieid)
             .then(data => {
                 if (data.status === 200) {
                     alert("Sikeres Törlés!");
                     GetMoviesByGenre(Genredata);
-                }else{
+                } else {
                     alert("Sikertelen Törlés!");
                 }
             });
@@ -46,14 +50,25 @@ export function Movies() {
                 {Moviedata.map((movie, ind) => {
                     return (
                         <div key={ind} className='MovieL'>
-                            <img className='simg' src={movie.thumbnailPath?"https://localhost:7293" + movie.thumbnailPath:""} alt={movie.title} />
+                            <img className='simg' src={movie.thumbnailPath} alt={movie.title} />
                             <h3>{movie.title}</h3>
-                            <button onClick={() => DelButt(movie.movieId)}>Delete</button>s
-                            <button onClick={ModButt}>Modify</button>
+                            <button onClick={() => DelButt(movie.movieId)}>Delete</button>
+                            <button onClick={() => ModButt(movie.movieId)}>Modify</button>
                         </div>
                     )
                 })}
             </div>
+            {() => {
+                switch (PanelData) {
+                    case "Edit":
+
+                        return <ModifyMovie Movie={Movie} Invisible={setPanelData} />
+
+                    default:
+                        return null;
+                }
+            }
+            }
         </div>
     )
 }

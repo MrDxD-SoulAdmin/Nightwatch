@@ -46,5 +46,12 @@ namespace NightWatchBackend.Controllers
             await movieService.DeleteMovie(movieid);
             return Ok();
         }
+        [HttpPost]
+
+        public async Task<IActionResult> ModifyMovie(int movieId,string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        {
+            await movieService.ModifyMovie(movieId, title, length, ageRating, relased, filePath, tumbnailPath, description);
+            return Ok();
+        }
     }
 }

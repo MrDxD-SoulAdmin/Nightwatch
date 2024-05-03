@@ -20,7 +20,7 @@ export function MainpageGenreListMovie({ Genre }) {
             {Moviedata.map((movie, ind) => {
                 return (
                     <div key={ind}>
-                        <img src={movie.thumbnailPath?"https://localhost:7293" + movie.thumbnailPath:""} alt={movie.title} width={100} />
+                        <img src={movie.thumbnailPath} alt={movie.title} width={100} />
                         <h3>{movie.title}</h3>
                     </div>
                 )
