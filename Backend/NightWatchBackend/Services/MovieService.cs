@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
+using NightWatchBackend.Communication;
 using NightWatchBackend.Database.Models;
 using NightWatchBackend.Repositories;
 using NightWatchBackend.Resources;
@@ -46,9 +47,12 @@ namespace NightWatchBackend.Services
             return mapper.Map<List<MovieResources>>(m);
         }
 
-        internal async Task ModifyMovie(int movieId, string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        internal async Task ModifyMovie(MovieData data)
         {
-            await movieRepository.ModifyMovie(movieId, title, length, ageRating, relased, filePath, tumbnailPath, description);
+            Movie mo = await movieRepository.GetMovieByID(data.MovieId);
+            mapper.Map(data, mo);
+            await movieRepository.ModifyMovie();
+            
         }
     }
 }

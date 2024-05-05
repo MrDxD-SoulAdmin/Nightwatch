@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NightWatchBackend.Communication;
 using NightWatchBackend.Database;
 using NightWatchBackend.Database.Models;
 
@@ -17,6 +18,12 @@ namespace NightWatchBackend.Repositories
             Movie l = await context.Movies.FirstOrDefaultAsync(x => x.MovieId == movieid);
             context.Remove(l);
             await context.SaveChangesAsync();
+        }
+
+        internal async Task<Movie> GetMovieByID(int id)
+        {
+            Movie l = await context.Movies.FirstOrDefaultAsync(x => x.MovieId == id);
+            return l;
         }
 
         internal async Task<List<Movie>> GetAllMovies()
@@ -39,17 +46,9 @@ namespace NightWatchBackend.Repositories
             return await context.Movies.OrderByDescending(x => x.RelasedOn).Take(7).ToListAsync();
         }
 
-        internal async Task ModifyMovie(int movieId, string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        internal async Task ModifyMovie()
         {
-            Movie m = await context.Movies.FirstOrDefaultAsync(x => x.MovieId == movieId);
-            m.Title = title;
-            m.Length = TimeOnly.Parse(length); 
-            m.AgeRating = ageRating;
-            m.RelasedOn = relased;
-            m.FilePath = filePath;
-            m.ThumbnailPath = tumbnailPath;
-            m.Description = description;
-            await context.SaveChangesAsync();
+           await context.SaveChangesAsync();
         }
     }
 }

@@ -17,8 +17,8 @@ export function Movies() {
             });
     }
     function ModButt(movieid) {
-        setPanelData("Edit");
         setMovie(Moviedata.find(x => x.movieId === movieid));
+        setPanelData("Edit");
     }
     function DelButt(movieid) {
         MovieCall.DeleteMovie(movieid)
@@ -31,6 +31,23 @@ export function Movies() {
                 }
             });
     }
+    function Reload(Changed = false) {
+        setPanelData("");
+        if (Changed) {
+            GetMoviesByGenre(Genredata);
+        }
+        
+    }
+    function GetPanel() {
+        switch (PanelData) {
+            case "Edit":
+
+                return <ModifyMovie Movie={Movie} Invisible={Reload} />
+
+            default:
+                return null;
+        }
+    }
     return (
         <div>
             <h1>Movies</h1>
@@ -42,7 +59,6 @@ export function Movies() {
                         <li onClick={() => GetMoviesByGenre("Horror")}>Horror</li>
                         <li onClick={() => GetMoviesByGenre("Comedy")}>Comedy</li>
                         <li onClick={() => GetMoviesByGenre("Mystic/Fantasy")}>Mystic/Fantasy</li>
-                        <li id='add' >Add New Movie</li>
                     </ul>
                 </nav>
             </div>
@@ -58,17 +74,7 @@ export function Movies() {
                     )
                 })}
             </div>
-            {() => {
-                switch (PanelData) {
-                    case "Edit":
-
-                        return <ModifyMovie Movie={Movie} Invisible={setPanelData} />
-
-                    default:
-                        return null;
-                }
-            }
-            }
+            {GetPanel()}
         </div>
     )
 }

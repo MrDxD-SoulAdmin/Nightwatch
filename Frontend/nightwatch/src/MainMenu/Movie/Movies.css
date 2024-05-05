@@ -24,10 +24,8 @@
 .List li{
     float: left;
     margin-right: 20px;
+    
 }
 .List{
     width: 100%;
-}
-#add{
-    float: right;
 }

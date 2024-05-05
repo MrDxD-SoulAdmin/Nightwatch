@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NightWatchBackend.Database.Models;
-using NightWatchBackend.Repositories;
+using NightWatchBackend.Communication;
 using NightWatchBackend.Resources;
 using NightWatchBackend.Services;
 
@@ -48,10 +47,11 @@ namespace NightWatchBackend.Controllers
         }
         [HttpPost]
 
-        public async Task<IActionResult> ModifyMovie(int movieId,string title, string length, int ageRating, DateOnly relased, string filePath, string tumbnailPath, string description)
+        public async Task<IActionResult> ModifyMovie([FromBody] MovieData data)
         {
-            await movieService.ModifyMovie(movieId, title, length, ageRating, relased, filePath, tumbnailPath, description);
+            await movieService.ModifyMovie(data);
             return Ok();
+
         }
     }
 }

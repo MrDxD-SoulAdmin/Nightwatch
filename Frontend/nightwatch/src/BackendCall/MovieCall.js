@@ -17,6 +17,6 @@ export default class MovieCall extends BaseCall{
         return this.Delete("/movie/DeleteMovie/"+movieid);
     }
     static ModifyMovie(movieId,title, length, ageRating, relased, filePath, tumbnailPath, description){
-        return this.Post("/movie/ModifyMovie",{movieId:movieId,title:title, length:length, ageRating:ageRating, relased, filePath:filePath, tumbnailPath:tumbnailPath,description:description});
+        return this.Post("/movie/ModifyMovie",{movieId:movieId,title:title, length:length, ageRating:ageRating, relasedOn:relased, filePath:filePath, thumbnailPath:tumbnailPath,description:description});
     }
 }
