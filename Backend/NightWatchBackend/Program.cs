@@ -45,7 +45,7 @@ namespace NightWatchBackend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
@@ -60,7 +60,7 @@ namespace NightWatchBackend
 
             app.MapControllers();
 
-            app.Run();
+            app.Run("https://localhost:7293");
         }
     }
 }
