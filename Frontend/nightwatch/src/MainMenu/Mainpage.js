@@ -17,12 +17,11 @@ export function Mainpage() {
     return (
         <div className='ConstMP'>
             <h2 className='Head'>New movies:</h2>
-            <div className="newmovie">
-            
+            <div className="movieStyle">
                 {Moviedata.map((movie, ind) => {
                     return (
-                        <div key={ind}>
-                            <img className='simg' src={movie.thumbnailPath} alt={movie.title}/>
+                        <div key={ind} className='movielist'>
+                            <img className='simg' src={movie.thumbnailPath} alt={movie.title} />
                             <h3>{movie.title}</h3>
                         </div>
                     )

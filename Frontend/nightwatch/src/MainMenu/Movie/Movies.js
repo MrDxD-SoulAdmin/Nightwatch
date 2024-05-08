@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Movies.css"
 import MovieCall from '../../BackendCall/MovieCall';
 import { ModifyMovie } from '../Addon/ModifyMovie';
+import { useLocation } from 'react-router-dom';
 export function Movies() {
+    const { state } = useLocation();
+    console.log(state);
     const [Moviedata, setMoviedata] = useState([]);
-    const [Genredata, SetGenredata] = useState("");
+    const [Genredata, SetGenredata] = useState(state?.Genre);
     const [PanelData, setPanelData] = useState("");
     const [Movie, setMovie] = useState("");
+
+    useEffect(() => {
+    GetMoviesByGenre(Genredata);
+    }, [Genredata]);
     function GetMoviesByGenre(g) {
         MovieCall.GetAllMovieGenre(g)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 setMoviedata(data);
-                SetGenredata(g);
             });
     }
     function ModButt(movieid) {
@@ -54,11 +60,11 @@ export function Movies() {
             <div>
                 <nav className='GenreMenu'>
                     <ul className='List'>
-                        <li onClick={() => GetMoviesByGenre("Action")}>Action</li>
-                        <li onClick={() => GetMoviesByGenre("Sci-Fi")}>Sci-Fi</li>
-                        <li onClick={() => GetMoviesByGenre("Horror")}>Horror</li>
-                        <li onClick={() => GetMoviesByGenre("Comedy")}>Comedy</li>
-                        <li onClick={() => GetMoviesByGenre("Mystic/Fantasy")}>Mystic/Fantasy</li>
+                        <li className={Genredata === "Action"?"Isselected":""} onClick={() => SetGenredata("Action")}>Action</li>
+                        <li className={Genredata === "Sci-Fi"?"Isselected":""} onClick={() => SetGenredata("Sci-Fi")}>Sci-Fi</li>
+                        <li className={Genredata === "Horror"?"Isselected":""}onClick={() => SetGenredata("Horror")}>Horror</li>
+                        <li className={Genredata === "Comedy"?"Isselected":""}onClick={() => SetGenredata("Comedy")}>Comedy</li>
+                        <li className={Genredata === "Mystic/Fantasy"?"Isselected":""}onClick={() => SetGenredata("Mystic/Fantasy")}>Mystic/Fantasy</li>
                     </ul>
                 </nav>
             </div>
@@ -68,8 +74,10 @@ export function Movies() {
                         <div key={ind} className='MovieL'>
                             <img className='simg' src={movie.thumbnailPath} alt={movie.title} />
                             <h3>{movie.title}</h3>
-                            <button onClick={() => DelButt(movie.movieId)}>Delete</button>
-                            <button onClick={() => ModButt(movie.movieId)}>Modify</button>
+                            <button id="del" onClick={() => DelButt(movie.movieId)}>Delete</button>
+                            <button id='edit' onClick={() => ModButt(movie.movieId)}>Modify</button>
+                            <button id='like'>Like</button>
+                            <button id='dislike'>Disklie</button>
                         </div>
                     )
                 })}

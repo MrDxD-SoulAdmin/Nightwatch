@@ -1,28 +1,62 @@
-
-.newmovie {
+.movieStyle {
     list-style: none;
     display: flex;
+    justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.5);
+    height: 500px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.movies {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: yellowgreen;
+.movieStyle h3 {
+    background: -webkit-linear-gradient(45deg, white, darkorange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.movies h3 {
+    background: -webkit-linear-gradient(45deg, white, darkorange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 .Head {
-    width:100vw;
+    width: 100%;
 }
-.ConstMP h2{
-    color: yellow;
-    text-decoration: wavy;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.GenredMovie{
+
+.GenredMovie {
     display: flex;
 }
-.simg{
+
+.simg {
     height: 60%;
-    margin: 15px auto;
+    margin: 15px 15px;
     border: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.movielist {
+    width: min-content;
+}
+
+.ConstMP h2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Genres {
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
 }

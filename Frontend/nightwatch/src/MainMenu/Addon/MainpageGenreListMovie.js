@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieCall from '../../BackendCall/MovieCall';
+import { Link } from 'react-router-dom';
 export function MainpageGenreListMovie({ Genre }) {
     const [Moviedata, setMoviedata] = useState([]);
 
@@ -14,13 +15,13 @@ export function MainpageGenreListMovie({ Genre }) {
 
     return (<>
         <div>
-            <h2>{Genre}</h2>
+            <Link className='Genres' to="/NightWatch/Movies" state={{Genre}} >{Genre}</Link>
         </div>
-        <div className="GenredMovie">
+        <div className="movieStyle">
             {Moviedata.map((movie, ind) => {
                 return (
-                    <div key={ind}>
-                        <img src={movie.thumbnailPath} alt={movie.title} width={100} />
+                    <div key={ind} className='movielist'>
+                        <img className='simg' src={movie.thumbnailPath} alt={movie.title} />
                         <h3>{movie.title}</h3>
                     </div>
                 )

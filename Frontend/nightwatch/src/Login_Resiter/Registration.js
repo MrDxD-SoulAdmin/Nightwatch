@@ -1,6 +1,6 @@
 import UserCall from "../BackendCall/UserCall";
 import "./Registration.css"
-//import React, { useState } from "react";
+import React from "react";
 
 export function Register() {
     //const [Filedata, setFiledata] = useState(null);
@@ -26,33 +26,31 @@ export function Register() {
     }
 
     return (
+        <div className="page">
         <div class="Register_From_Container">
             <div class="Register_From">
                 <h2>Sign Up</h2>
-                <div class="Input">
+                <div class="Input_R">
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="E-mail" class="Inputs" autocomplete="off" id="email" />
                 </div>
-                <div className="Input">
+                <div className="Input_R">
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder="Username" class="Inputs" autocomplete="off" id="username" />
                 </div>
-                <div class="Input">
+                <div class="Input_R">
                     <i class="fa fa-user"></i>
                     <input type="password" placeholder="Password" class="Inputs" autocomplete="off" id="password" />
                 </div>
-                <div className="Input">
+                <div className="Input_R">
                     <i class="fa fa-user"></i>
                     <input type="Date" class="Inputs" autocomplete="off" id="birthofdate" />
                 </div>
-                {/* <div className="Input">
-                    <i class="fa fa-user"></i>
-                    <input type="file" class="Inputs" autocomplete="off" id="Profilepicture" />
-                </div> */}
                 <div class="SButton" id="Reg_Button">
                     <button onClick={UserRegs} id="RB">Registretion</button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

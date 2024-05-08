@@ -23,6 +23,12 @@ export function Login() {
             });
     }
 
+    function Entered(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            UserLog();
+        }
+    }
     return (
     <div className="cont">
         <div class="Login_From_Container">
@@ -34,7 +40,7 @@ export function Login() {
                 </div>
                 <div class="Input_L">
                     <i class="fa fa-user"></i>
-                    <input type="password" placeholder="Password" class="Inputs" autocomplete="off" id="password" />
+                    <input type="password" placeholder="Password" class="Inputs" autocomplete="off" id="password" onKeyDown={Entered}/>
                 </div>
                 <div class="SButton" id="Login_Button">
                     <button onClick={UserLog} id="LB">Login</button>

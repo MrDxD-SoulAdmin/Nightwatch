@@ -5,12 +5,12 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("../Images/luffy-minimal-5k-pf-2560x1080.jpg");
+    background-image: url("../Images/bg.jpg");
     background-size: cover;
 }
 
 .Login_From_Container {
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 450px;
     background: transparent;
@@ -57,7 +57,7 @@
     position: absolute;
     inset: 2px;
     border-radius: 50px 5px;
-    background-image: url("../Images/luffy-minimal-5k-pf-2560x1080.jpg");
+    background-image: url("../Images/bg.jpg");
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: darken;
     background-attachment: fixed;
@@ -96,7 +96,7 @@
     width: 100%;
     padding: 20px 10px 10px;
     background: transparent;
-    border: none;
+    border-radius: 5%;
     outline: none;
     color: white;
     font-size: 1em;
