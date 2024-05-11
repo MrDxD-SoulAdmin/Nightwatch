@@ -40,6 +40,7 @@ export function ModifyMovie({ Movie, Invisible }) {
     }
     console.log(Movie);
     return (
+        <div className="Mpage">
         <div className="Modify_From_Container">
             <div className="Modify_From">
                 <h2>Modify Movie</h2>
@@ -79,8 +80,9 @@ export function ModifyMovie({ Movie, Invisible }) {
                     <input type="text" placeholder="Description" className="Inputs" autoComplete="off" id="Description" defaultValue={ActMovie.description??""} />
                 </div>
                 <div className="SButton" id="Modify_Button">
-                    <button onClick={() => Submit()} id="RB">Modify</button>
+                    <button onClick={() => Submit()} id="MB">Modify</button>
                 </div>
+            </div>
             </div>
         </div>
     )
